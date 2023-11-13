@@ -4,7 +4,7 @@ import { CreatePost } from "~/app/_components/create-post";
 import { getServerAuthSession } from "~/server/auth";
 import { api } from "~/trpc/server";
 import { getServerSession } from "next-auth/next";
-import {authOptions} from "../app/api/auth/[...nextauth]/authoptions";
+import {authOptions} from "../app/api/auth/[...nextauth]/route";
 import {useSession} from "next-auth/react";
 
 export default async function Home() {
