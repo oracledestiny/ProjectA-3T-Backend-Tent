@@ -19,7 +19,11 @@ jobs:
           node-version: 18
 
       - name: Install Dependencies
-        run: npm install
+        run: |
+            cd project_a
+            npm install
 
       - name: Run Dev Server
-        run: npm run dev
+        run: |
+          cd project_a
+          npm run dev
