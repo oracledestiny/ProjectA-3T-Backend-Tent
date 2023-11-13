@@ -1,8 +1,11 @@
+// src/app/api/auth/[...nextauth]/route.ts
+
 import NextAuth, { NextAuthOptions } from "next-auth";
 import GithubProvider from "next-auth/providers/github";
 import GoogleProvider from "next-auth/providers/google";
+import { NextApiHandler } from "next";
 
-export const authOptions: NextAuthOptions = {
+const authOptions: NextAuthOptions = {
   // Configure one or more authentication providers
   providers: [
     GithubProvider({
@@ -17,6 +20,9 @@ export const authOptions: NextAuthOptions = {
   secret: process.env.NEXTAUTH_SECRET as string,
 };
 
-const handler = NextAuth(authOptions);
+const handler: NextApiHandler = (req, res) => {
+  // You can customize this handler if needed
+  return NextAuth(req, res, authOptions);
+};
 
-export { handler as GET, handler as POST };
+export default handler;
