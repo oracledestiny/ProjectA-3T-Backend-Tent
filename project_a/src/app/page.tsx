@@ -1,13 +1,14 @@
 import Link from "next/link";
 
 import { CreatePost } from "~/app/_components/create-post";
-import { authOptions, getServerAuthSession } from "~/server/auth";
+import { getServerAuthSession } from "~/server/auth";
 import { api } from "~/trpc/server";
 import { getServerSession } from "next-auth/next";
+import handler from "../app/api/auth/[...nextauth]/route";
 import {useSession} from "next-auth/react";
 
 export default async function Home() {
-  const session = await getServerSession(authOptions);
+  const session = await getServerSession(handler.authOptions);
   const hello = await api.post.hello.query({ text: "from tRPC" });
 
   return (
