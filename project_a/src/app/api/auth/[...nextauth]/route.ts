@@ -3,7 +3,7 @@
 import NextAuth, { NextAuthOptions } from "next-auth";
 import GithubProvider from "next-auth/providers/github";
 import GoogleProvider from "next-auth/providers/google";
-import { NextApiHandler } from "next";
+import { NextApiHandler, NextApiRequest, NextApiResponse } from "next";
 
 const authOptions: NextAuthOptions = {
   // Configure one or more authentication providers
@@ -20,9 +20,10 @@ const authOptions: NextAuthOptions = {
   secret: process.env.NEXTAUTH_SECRET as string,
 };
 
-const handler: NextApiHandler = (req, res) => {
+const handler: NextApiHandler = (req: NextApiRequest, res: NextApiResponse) => {
   // You can customize this handler if needed
   return NextAuth(req, res, authOptions);
 };
 
-export { authOptions, handler };
+export default handler;
+export { authOptions };
