@@ -32,6 +32,8 @@ jobs:
           EDGE_STORE_SECRET_KEY=$EDGE_STORE_SECRET_KEY \
           GOOGLE_CLIENT_ID=$GOOGLE_CLIENT_ID \
           GOOGLE_CLIENT_SECRET=$GOOGLE_CLIENT_SECRET \
+          DATABASE_URL \
+          NEXTAUTH_SECRET \
           npm run build
         env:
           DISCORD_CLIENT_ID: ${{ secrets.DISCORD_CLIENT_ID }}
@@ -40,6 +42,8 @@ jobs:
           EDGE_STORE_SECRET_KEY: ${{ secrets.EDGE_STORE_SECRET_KEY }}
           GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
           GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
+          NEXTAUTH_SECRET: ${{ secrets.NEXTAUTH_SECRET }}
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
 
       - name: Run Dev Server
         run: |
