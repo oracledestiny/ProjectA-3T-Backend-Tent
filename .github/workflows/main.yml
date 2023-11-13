@@ -24,30 +24,22 @@ jobs:
             npm install
 
       - name: Build
-          run: |
-            DISCORD_CLIENT_ID=$DISCORD_CLIENT_ID npm run build
-          env:
-            DISCORD_CLIENT_ID: ${{ secrets.DISCORD_CLIENT_ID }}
-          run: |
-            DISCORD_CLIENT_SECRET=$DISCORD_CLIENT_SECRET npm run build
-          env:
-            DISCORD_CLIENT_SECRET: ${{ secrets.DISCORD_CLIENT_SECRET }}
-          run: |
-            EDGE_STORE_ACCESS_KEY=$EDGE_STORE_ACCESS_KEY npm run build
-          env:
-            EDGE_STORE_ACCESS_KEY: ${{ secrets.EDGE_STORE_ACCESS_KEY }}
-          run: |
-            EDGE_STORE_SECRET_KEY=$EDGE_STORE_SECRET_KEY npm run build
-          env:
-            EDGE_STORE_SECRET_KEY: ${{ secrets.EDGE_STORE_SECRET_KEY }}
-          run: |
-            GOOGLE_CLIENT_ID=$GOOGLE_CLIENT_ID npm run build
-          env:
-            GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
-          run: |
-            GOOGLE_CLIENT_SECRET=$GOOGLE_CLIENT_SECRET npm run build
-          env:
-            GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
+        run: |
+          DISCORD_CLIENT_ID=$DISCORD_CLIENT_ID \
+          DISCORD_CLIENT_SECRET=$DISCORD_CLIENT_SECRET \
+          EDGE_STORE_ACCESS_KEY=$EDGE_STORE_ACCESS_KEY \
+          EDGE_STORE_SECRET_KEY=$EDGE_STORE_SECRET_KEY \
+          GOOGLE_CLIENT_ID=$GOOGLE_CLIENT_ID \
+          GOOGLE_CLIENT_SECRET=$GOOGLE_CLIENT_SECRET \
+          npm run build
+        env:
+          DISCORD_CLIENT_ID: ${{ secrets.DISCORD_CLIENT_ID }}
+          DISCORD_CLIENT_SECRET: ${{ secrets.DISCORD_CLIENT_SECRET }}
+          EDGE_STORE_ACCESS_KEY: ${{ secrets.EDGE_STORE_ACCESS_KEY }}
+          EDGE_STORE_SECRET_KEY: ${{ secrets.EDGE_STORE_SECRET_KEY }}
+          GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
+          GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
+
       - name: Run Dev Server
         run: |
           cd project_a
