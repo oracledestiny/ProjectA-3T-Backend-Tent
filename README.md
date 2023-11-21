@@ -11,4 +11,4 @@ This project is construct with 3T stacks, NextJS framework. This repository will
 -
 
 ### Back-end Team
--
+- Anawin Srivoranan (Tae)
